@@ -1,0 +1,43 @@
+<div class="container mt-3">
+
+
+    <div class="row">
+        <!-- show error msg -->
+    <div *ngIf="errorMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{errorMsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <!-- close error mmsg -->
+
+         <!-- show success msg -->
+    <div *ngIf="successMsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{successMsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <!-- close success msg -->
+
+    <form  [formGroup]="userForm" >
+        <div class="col-md-4 mt-3">
+            <label for="">FullName</label>
+            <input type="text" class="form-control" formControlName="fullname" placeholder="Enter full name">
+        </div>
+        <div class="col-md-4 mt-3">
+            <label for="">Email Id</label>
+            <input type="text" class="form-control" formControlName="email"  placeholder="Enter Email Id">
+        </div>
+        <div class="col-md-4 mt-3">
+            <label for="">Mobile No.</label>
+            <input type="text" class="form-control" formControlName="mobile"  placeholder="Enter Mobile number">
+        </div>
+
+        <div class="col-md-4 mt-3" *ngIf="!getParamById">
+           <button class="btn btn-primary " (click)="userSubmit()">Add User</button>
+        </div>
+
+        <div class="col-md-4 mt-3 " *ngIf="getParamById" >
+            <button class="btn btn-success" (click)="updateUser()" >Update User</button>
+         </div>
+        
+    </form>
+</div>
+</div>
